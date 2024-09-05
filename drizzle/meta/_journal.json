@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1725458232899,
+      "tag": "0000_married_zaladane",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1725459514337,
+      "tag": "0001_graceful_elektra",
+      "breakpoints": true
+    }
+  ]
+}
