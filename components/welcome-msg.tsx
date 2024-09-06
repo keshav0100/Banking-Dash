@@ -9,7 +9,7 @@ export const WelcomeMsg=()=>{
                 Welcome Back{isLoaded?": ":""}{user?.firstName}
             </h2>
             <p className="text-sm lg:text-base text-[#265928]">
-                This is your financial Overview Report
+                This is your Financial Overview Report
             </p>
         </div>
     )
