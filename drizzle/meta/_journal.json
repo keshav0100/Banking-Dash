@@ -15,6 +15,13 @@
       "when": 1725459514337,
       "tag": "0001_graceful_elektra",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1725714781854,
+      "tag": "0002_wealthy_the_stranger",
+      "breakpoints": true
     }
   ]
 }
