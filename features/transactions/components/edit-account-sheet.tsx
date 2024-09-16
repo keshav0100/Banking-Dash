@@ -7,7 +7,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
-import { AccountForm } from "./accounts-form";
+import { AccountForm } from "./transaction-form";
 import { FormValue } from "hono/types";
 import { insertAccountSchema } from "@/db/schema";
 import { z } from "zod";
