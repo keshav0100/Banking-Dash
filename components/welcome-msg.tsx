@@ -5,12 +5,14 @@ export const WelcomeMsg = () => {
   const { user, isLoaded } = useUser();
   return (
     <div className="space-y-2 mb-4">
-      <h2 className="text-2xl lg:text-4xl text-[#22303d] font-medium  ">
+      <h2 className="text-2xl lg:text-4xl text-[#000000] font-medium  ">
         Welcome{isLoaded ? ": " : ""}
-        {user?.firstName} {user?.lastName}
+        <span className="text-[#4632a5]">
+          {user?.firstName} {user?.lastName}
+        </span>
       </h2>
-      <p className="text-sm lg:text-base text-[#484f86]">
-        Here is your Financial Overview Report
+      <p className="text-sm lg:text-base text-#34495e font-semibold">
+        Your Financial Overview Report
       </p>
     </div>
   );

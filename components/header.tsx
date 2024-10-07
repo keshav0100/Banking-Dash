@@ -7,7 +7,7 @@ import { WelcomeMsg } from "@/components/welcome-msg";
 
 export const Header = () => {
   return (
-    <div className="bg-gradient-to-b from-[#e99e79] to blue-500 px-4 py-8 lg:px-14 pb-36">
+    <div className="bg-gradient-to-b from-[#26aab8] to blue-500 px-4 py-8 lg:px-14 pb-36">
       {/* // <div className="bg-gradient-to-b from-[#12a7c2] to-[#0d7d8e] px-4 py-8 lg:px-14 pb-36"> */}
 
       <div className="max-w-screen-2xl mx-auto ">

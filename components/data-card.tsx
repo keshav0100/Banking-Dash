@@ -54,7 +54,7 @@ export const DataCard = ({
   percentageChange = 0,
 }: DataCardProps) => {
   return (
-    <Card className="border-none drop-shadow-sm">
+    <Card className="border-none drop-shadow-lg">
       <CardHeader className="flex flex-row items-center justify-between gap-x-4">
         <div className="space-y-2">
           <CardTitle className="text-2xl line-clamp-1">{title}</CardTitle>
@@ -85,7 +85,7 @@ export const DataCard = ({
           )}
         >
           {/* {formatPercentage(percentageChange)} from last period  can comment this */}
-          {formatPercentage(percentageChange,{addPrefix:true})} from last period
+          {/* {formatPercentage(percentageChange,{addPrefix:true})} from last period */}
         </p>
       </CardContent>
     </Card>
