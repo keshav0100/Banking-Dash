@@ -8,8 +8,33 @@ import { DataTable } from "@/components/data-table";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useBulkDeleteTransactions } from "@/features/transactions/api/use-bulk-delete-transaction";
+import { error } from "console";
+import { UploadButton } from "./upload-button";
+import { useState } from "react";
+import { ImportCard } from "./import-card";
+
+enum VARIANTS {
+  LIST = "LIST",
+  IMPORT = "IMPORT",
+}
+const INITIAL_IMPORT_RESULTS = {
+  data: [],
+  error: [],
+  meta: {},
+};
 
 const TransactionsPage = () => {
+  const [variant, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
+  const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
+  const onUpload = (results: typeof INITIAL_IMPORT_RESULTS) => {
+    console.log(results);
+    setImportResults(results);
+    setVariant(VARIANTS.IMPORT);
+  };
+  const onCancelImport = () => {
+    setImportResults(INITIAL_IMPORT_RESULTS);
+    setVariant(VARIANTS.LIST);
+  };
   const NewTransaction = useNewTransaction();
   const deleteTransactions = useBulkDeleteTransactions();
   const transactionsQuery = useGetTransactions();
@@ -33,7 +58,17 @@ const TransactionsPage = () => {
       </div>
     );
   }
-
+  if (variant === VARIANTS.IMPORT) {
+    return (
+      <>
+        <ImportCard
+        data={importResults.data}
+        onCancel={onCancelImport}
+        onSubmit={()=>{}}
+        />
+      </>
+    );
+  }
   return (
     <div className="max-w-screen-2xl mx-auto w-full pb-10 -mt-24">
       <Card className="border-none drop-shadow-sm">
@@ -41,10 +76,13 @@ const TransactionsPage = () => {
           <CardTitle className="text-xl line-clamp-1">
             Transaction History
           </CardTitle>
-          <Button onClick={NewTransaction.onOpen} size="sm">
-            <Plus className="size-4 mr-2" />
-            Add new
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button onClick={NewTransaction.onOpen} size="sm">
+              <Plus className="size-4 mr-2" />
+              Add new
+            </Button>
+            
+          </div>
         </CardHeader>
 
         <CardContent>

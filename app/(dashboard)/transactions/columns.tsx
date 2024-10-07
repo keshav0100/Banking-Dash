@@ -55,45 +55,31 @@ export const columns: ColumnDef<ResponseType>[] = [
     },
     cell: ({ row }) => {
       const date = row.getValue("date") as Date;
-      return <span>{format(date, "dd MMMM,yyyy")}</span>;
+      return <span>{format(date, "dd MMM yyyy")}</span>;
     },
   },
   {
-    accessorKey: "category",
+    accessorKey: "account",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Category
+          Account
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
-    },
-    cell: ({ row }) => {
-
-      return (
-        <CategoryColumn
-        id={row.original.id}
-        category={row.original.category}
-        categoryId={row.original.categoryId}
-
-        />
       );
     },
-  },
-  {
-    accessorKey: "payee",
-    header: ({ column }) => {
+    cell: ({ row }) => {
+      const date = row.getValue("date") as Date;
       return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Payee
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
+        <span>
+          <AccountColumn
+            account={row.original.account}
+            accountId={row.original.accountId}
+          />
+        </span>
       );
     },
   },
@@ -123,27 +109,44 @@ export const columns: ColumnDef<ResponseType>[] = [
     },
   },
   {
-    accessorKey: "account",
+    accessorKey: "payee",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Account
+          Payee
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+
+  {
+    accessorKey: "category",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Category
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
     cell: ({ row }) => {
-      const date = row.getValue("date") as Date;
-      return <span><AccountColumn
-
-      account={row.original.account}  
-      accountId={row.original.accountId}
-      /></span>;
+      return (
+        <CategoryColumn
+          id={row.original.id}
+          category={row.original.category}
+          categoryId={row.original.categoryId}
+        />
+      );
     },
   },
+
   {
     id: "actions",
     cell: ({ row }) => <Actions id={row.original.id} />,
