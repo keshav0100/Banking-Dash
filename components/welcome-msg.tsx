@@ -1,6 +1,6 @@
 "use client";
-
 import { useUser } from "@clerk/nextjs";
+
 export const WelcomeMsg = () => {
   const { user, isLoaded } = useUser();
   return (
@@ -11,7 +11,7 @@ export const WelcomeMsg = () => {
           {user?.firstName} {user?.lastName}
         </span>
       </h2>
-      <p className="text-sm lg:text-base text-#34495e font-semibold">
+      <p className="text-lg lg:text-base text-#34495e font-bold">
         Your Financial Overview Report
       </p>
     </div>
