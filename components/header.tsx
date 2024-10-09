@@ -25,7 +25,7 @@ export const Header = () => {
           </ClerkLoading>
         </div>
         <WelcomeMsg />
-        <Filters />
+        {/* <Filters /> */}
       </div>
     </div>
   );

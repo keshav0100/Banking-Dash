@@ -1,5 +1,6 @@
 "use client";
 import { useUser } from "@clerk/nextjs";
+import { Filters } from "@/components/filters";
 
 export const WelcomeMsg = () => {
   const { user, isLoaded } = useUser();
@@ -14,6 +15,7 @@ export const WelcomeMsg = () => {
       <p className="text-lg lg:text-base text-#34495e font-bold">
         Your Financial Overview Report
       </p>
+      <Filters/>
     </div>
   );
 };
