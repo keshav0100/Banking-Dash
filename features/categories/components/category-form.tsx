@@ -84,5 +84,4 @@ export const CategoryForm = ({
         )}
       </form>
     </Form>
-  );
-};
+  );};
