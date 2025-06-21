@@ -13,6 +13,7 @@ export const DataGrid = () => {
   const dateRangeLabel = formatDateRange({ to, from });
   if (isLoading) {
     return (
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pb-2 mb-8">
         <DataCardLoading />
         <DataCardLoading />

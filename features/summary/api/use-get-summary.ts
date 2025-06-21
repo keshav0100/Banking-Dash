@@ -30,16 +30,15 @@ export const useGetSummary = () => {
         incomeAmount: convertAmountFromMiliUnits(data.incomeAmount),
         expensesAmount: convertAmountFromMiliUnits(data.expensesAmount),
         remainingAmount: convertAmountFromMiliUnits(data.remainingAmount),
-categories: data.categories.map((category) => ({
-  ...category,
-  value: convertAmountFromMiliUnits(category.value),
-})),
-days: data.days.map((day) => ({
-  ...day,
-income: convertAmountFromMiliUnits(day.income),
-expenses: convertAmountFromMiliUnits(day.expenses),
-
-}))
+        categories: data.categories.map((category) => ({
+          ...category,
+          value: convertAmountFromMiliUnits(category.value),
+        })),
+        days: data.days.map((day) => ({
+          ...day,
+          income: convertAmountFromMiliUnits(day.income),
+          expenses: convertAmountFromMiliUnits(day.expenses),
+        })),
       };
     },
   });
