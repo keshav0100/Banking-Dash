@@ -14,7 +14,7 @@ export const useGetSummary = () => {
     //TODO
     queryKey: ["summary", { from, to, accountId }],
     queryFn: async () => {
-      const response = await client.api.summary.$get({
+      const response = await (client.api as any).summary.$get({
         query: {
           from,
           to,
@@ -30,11 +30,11 @@ export const useGetSummary = () => {
         incomeAmount: convertAmountFromMiliUnits(data.incomeAmount),
         expensesAmount: convertAmountFromMiliUnits(data.expensesAmount),
         remainingAmount: convertAmountFromMiliUnits(data.remainingAmount),
-        categories: data.categories.map((category) => ({
+        categories: data.categories.map((category: any) => ({
           ...category,
           value: convertAmountFromMiliUnits(category.value),
         })),
-        days: data.days.map((day) => ({
+        days: data.days.map((day: any) => ({
           ...day,
           income: convertAmountFromMiliUnits(day.income),
           expenses: convertAmountFromMiliUnits(day.expenses),
